@@ -7,12 +7,14 @@ import styles from "./usersList.module.css";
  * Pure list component.
  * Responsible only for rendering.
  */
-type Props = {
+
+export const UsersList = ({
+  users,
+  onEdit,
+}: {
   users: User[];
   onEdit: (user: User) => void;
-};
-
-export const UsersList = ({ users, onEdit }: Props) => {
+}) => {
   return (
     <div className={styles.usersList}>
       {users.map((user) => (

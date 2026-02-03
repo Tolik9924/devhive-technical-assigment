@@ -1,41 +1,65 @@
 import { useState } from "react";
-import { User } from "../types";
 import { validateEmail } from "@/utils/validateEmail";
+import { User } from "../types";
+
+import styles from "./userEditForm.module.css";
 
 /**
  * Responsible only for editing a user.
  * Uses controlled inputs and local form state.
  */
-type Props = {
-  user: User;
+
+export const UserEditForm = ({
+  user,
+  onSubmit,
+  onCancel,
+}: {
+  user: User | null;
   onSubmit: (user: User) => void;
   onCancel: () => void;
-};
+}) => {
+  const [form, setForm] = useState(user || { name: "", email: "", city: "" });
 
-export const UserEditForm = ({ user, onSubmit, onCancel }: Props) => {
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [city, setCity] = useState(user.address.city);
+  const handleChange = (field: string, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
 
-  function handleSubmit() {
-    if (!validateEmail(email)) return;
+  if (!user) return null;
+
+  const handleSubmit = () => {
+    if (!validateEmail(form.email)) return;
 
     onSubmit({
       ...user,
-      name,
-      email,
-      address: { ...user.address, city },
+      name: form.name,
+      email: form.email,
+      city: form.city,
     });
-  }
+  };
 
   return (
-    <div>
-      <input value={name} onChange={(e) => setName(e.target.value)} />
-      <input value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input value={city} onChange={(e) => setCity(e.target.value)} />
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <h3>Edit User</h3>
+      <input
+        value={form.name}
+        onChange={(e) => handleChange("name", e.target.value)}
+        placeholder="Name"
+      />
+      <input
+        value={form.email}
+        onChange={(e) => handleChange("email", e.target.value)}
+        placeholder="Email"
+      />
+      <input
+        value={form.city}
+        onChange={(e) => handleChange("city", e.target.value)}
+        placeholder="City"
+      />
 
-      <button onClick={handleSubmit}>Save</button>
-      <button onClick={onCancel}>Cancel</button>
-    </div>
+      <div className={styles.formButtons}>
+        <button type="submit">Save</button>
+        <button onClick={onCancel}>Cancel</button>
+      </div>
+    </form>
   );
 };

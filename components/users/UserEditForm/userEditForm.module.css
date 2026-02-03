@@ -1,0 +1,15 @@
+.form {
+  width: 300px;
+  padding: 15px 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formButtons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}

@@ -12,8 +12,6 @@ import styles from "./page.module.css";
 export default async function UsersPage() {
   const users = await fetchUsers();
 
-  console.log("USERS: ", users);
-
   return (
     <div className={styles.usersPage}>
       <UsersClient initialUsers={users} />
