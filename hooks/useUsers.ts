@@ -14,7 +14,6 @@ type FilterBy = {
 
 export const useUsers = (initialUsers: User[], filterBy: FilterBy) => {
   const { name, city } = filterBy;
-
   const filteredUsers = useMemo(
     () => filterUsers(initialUsers, name, city),
     [initialUsers, name, city],

@@ -9,6 +9,7 @@ import { UserEditForm } from "../UserEditForm";
 import { User } from "../types";
 
 import styles from "./usersClient.module.css";
+import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 
 /**
  * Client orchestrator component.
@@ -27,6 +28,7 @@ export const UsersClient = ({ initialUsers }: { initialUsers: User[] }) => {
   });
 
   const filteredUsers = useUsers(users, filterUser);
+  const debouncedValue = useDebouncedValue(filteredUsers, 300);
 
   const onEditUser = (user: User) => {
     setSelectedUser(user);
@@ -56,7 +58,7 @@ export const UsersClient = ({ initialUsers }: { initialUsers: User[] }) => {
         onSearchChange={(value) => onFilterChange("name", value)}
         onCityChange={(value) => onFilterChange("city", value)}
       />
-      <UsersList users={filteredUsers} onEdit={onEditUser} />
+      <UsersList users={debouncedValue} onEdit={onEditUser} />
       <Modal isOpen={isOpenModal} onClose={onCloseModal}>
         <UserEditForm
           user={selectedUser}
