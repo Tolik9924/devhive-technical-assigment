@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { User } from "@/components/users/types";
 import { filterUsers } from "@/utils/filterUsers";
 
@@ -7,20 +7,18 @@ import { filterUsers } from "@/utils/filterUsers";
  * Keeps components lean and focused on rendering.
  */
 
-export const useUsers = (initialUsers: User[]) => {
-  const [search, setSearch] = useState("");
-  const [city, setCity] = useState("");
+type FilterBy = {
+  name: string;
+  city: string;
+};
+
+export const useUsers = (initialUsers: User[], filterBy: FilterBy) => {
+  const { name, city } = filterBy;
 
   const filteredUsers = useMemo(
-    () => filterUsers(initialUsers, search, city),
-    [initialUsers, search, city],
+    () => filterUsers(initialUsers, name, city),
+    [initialUsers, name, city],
   );
 
-  return {
-    filteredUsers,
-    search,
-    city,
-    setSearch,
-    setCity,
-  };
+  return filteredUsers;
 };

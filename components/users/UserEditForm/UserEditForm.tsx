@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { validateEmail } from "@/utils/validateEmail";
+import { EMAIL_ERROR_MESSAGE, USER_FIELDS } from "./constants";
 import { User } from "../types";
 
 import styles from "./userEditForm.module.css";
@@ -8,12 +9,6 @@ import styles from "./userEditForm.module.css";
  * Responsible only for editing a user.
  * Uses controlled inputs and local form state.
  */
-
-const USER_FIELDS = {
-  name: "name",
-  email: "email",
-  city: "city",
-};
 
 export const UserEditForm = ({
   user,
@@ -30,7 +25,7 @@ export const UserEditForm = ({
   const handleChange = (field: string, value: string) => {
     if (field === USER_FIELDS.email) {
       if (!validateEmail(value)) {
-        setError("Invalid email address.");
+        setError(EMAIL_ERROR_MESSAGE);
       } else {
         setError("");
       }
