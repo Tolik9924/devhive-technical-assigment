@@ -1,14 +1,13 @@
 import styles from "./usersFilters.module.css";
 
-/**
- * Controlled filters component.
- * No business logic here.
- */
+// Presentational component responsible for rendering user filter inputs.
+// It receives current filter values and change handlers via props.
+// and does not manage any internal state or filtering logic.
 
-/**
- * Controlled filters component.
- * No business logic here.
- */
+// Props:
+// - search, city: current filter values from UsersClient
+// - onSearchChange, onCityChange: callbacks to update filters in UsersClient
+// This component does not hold any state or perform filtering itself.
 
 export const UsersFilters = ({
   search,

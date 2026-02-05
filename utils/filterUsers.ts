@@ -1,9 +1,7 @@
 import { User } from "@/components/users/types";
 
-/**
- * Pure function for client-side filtering.
- * Kept outside of JSX for clarity and testability.
- */
+// Pure function for client-side filtering.
+// Kept outside of JSX for clarity and testability.
 
 export const filterUsers = (
   users: User[],

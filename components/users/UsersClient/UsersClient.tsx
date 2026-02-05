@@ -1,4 +1,6 @@
 "use client";
+// This component intentionally contains UI state and side effects.
+// Server-side data fetching and routing are handled by the page component.
 
 import { useEffect, useState } from "react";
 import { Loading } from "@/ui-components/Loading/Loading";
@@ -13,12 +15,14 @@ import { User } from "../types";
 
 import styles from "./usersClient.module.css";
 
-/**
- * Client orchestrator component.
- * - Holds local state
- * - Coordinates filtering and editing
- * - Delegates rendering to smaller components
- */
+// Client-side container component responsible for all interactive behavior
+// on the Users page: data fetching, filtering, debounced search,
+// edit modal state, and local user updates.
+// This component coordinates UI state and delegates rendering
+// to presentational components.
+
+// Data flow:
+// - Props to child components: filters, users, handlers
 
 export const UsersClient = () => {
   const [users, setUsers] = useState<User[]>([]);

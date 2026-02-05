@@ -1,5 +1,7 @@
 import styles from "./modal.module.css";
 
+// Modal component for editing forms and displaying information.
+
 export const Modal = ({
   isOpen,
   hasCloseBtn = true,

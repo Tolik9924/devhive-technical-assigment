@@ -1,11 +1,9 @@
 import { User } from "@/components/users/types";
 import { UserDTO } from "./types";
 
-/**
- * Server-side data fetching.
- * This function is isolated to make the data source
- * easy to replace (API / mock / DB) in the future.
- */
+// Fetches users from the external API and maps the response
+// from DTOs to the internal User domain model.
+// Returns an empty array if the request fails.
 
 export async function fetchUsers(): Promise<User[]> {
   try {

@@ -5,10 +5,13 @@ import { User } from "../types";
 
 import styles from "./userEditForm.module.css";
 
-/**
- * Responsible only for editing a user.
- * Uses controlled inputs and local form state.
- */
+// Client-side controlled form responsible for editing a single user.
+// It manages its own local form state and validation (email),
+// and delegates persistence of changes to the parent component via callbacks.
+
+// This form intentionally avoids external form libraries (e.g. React Hook Form)
+// because of its small size and simple validation requirements.
+// Managing state locally keeps the implementation lightweight and readable.
 
 export const UserEditForm = ({
   user,

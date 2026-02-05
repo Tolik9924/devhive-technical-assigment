@@ -3,10 +3,12 @@ import { UserRow } from "../UserRow";
 
 import styles from "./usersList.module.css";
 
-/**
- * Pure list component.
- * Responsible only for rendering.
- */
+// Pure list component.
+// Responsible only for rendering.
+
+// Props:
+// - users: array of filtered User objects from UsersClient
+// - onEdit: callback to open the edit form for a selected user
 
 export const UsersList = ({
   users,

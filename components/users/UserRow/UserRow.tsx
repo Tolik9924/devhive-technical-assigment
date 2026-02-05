@@ -2,10 +2,12 @@ import { User } from "../types";
 
 import styles from "./userRow.module.css";
 
-/**
- * Single row representation.
- * Memoization could be added if needed.
- */
+// Single row representation.
+
+// Props:
+// - user: individual user data
+// - onEdit: callback triggered when the user clicks "Edit"
+
 type Props = {
   user: User;
   onEdit: (user: User) => void;
