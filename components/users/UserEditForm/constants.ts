@@ -5,4 +5,5 @@ export const USER_FIELDS = {
 };
 
 export const EMAIL_ERROR_MESSAGE =
-  "Enter your email address in the format name@example.com (at least 3 characters before and after @)";
+  "Email must be in the format name@example.com. " +
+  "Name: at least 3 characters, domain: 3–10 characters, TLD: 2–3 characters.";

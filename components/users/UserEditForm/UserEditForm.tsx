@@ -51,14 +51,14 @@ export const UserEditForm = ({
       <div className={styles.field}>
         <input
           value={form.name}
-          onChange={(e) => handleChange("name", e.target.value)}
+          onChange={(e) => handleChange(USER_FIELDS.name, e.target.value)}
           placeholder="Name"
         />
       </div>
       <div className={styles.field}>
         <input
           value={form.email}
-          onChange={(e) => handleChange("email", e.target.value)}
+          onChange={(e) => handleChange(USER_FIELDS.email, e.target.value)}
           placeholder="Email"
         />
         <div className={styles.errorContainer}>
@@ -68,7 +68,7 @@ export const UserEditForm = ({
       <div className={styles.field}>
         <input
           value={form.city}
-          onChange={(e) => handleChange("city", e.target.value)}
+          onChange={(e) => handleChange(USER_FIELDS.city, e.target.value)}
           placeholder="City"
         />
       </div>
