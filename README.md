@@ -107,3 +107,32 @@ app/
   - Form state is isolated from the list rendering.
   - On submit, the user is updated locally in state.
   - Email validation is handled at the form level.
+
+## Next.js Decisions
+
+- App Router is used to demonstrate modern Next.js patterns.
+- Client Components handle interactivity and local state.
+
+## Key Design Decisions
+
+- No business logic inside JSX.
+- Components have single, clear responsibilities.
+- TypeScript types are shared and reused.
+- Stable keys are used for list rendering.
+- Client-side filtering avoids unnecessary network requests.
+
+## 🚧 What I Would Improve in Production
+
+If this were a production application, the following improvements would be considered:
+
+### Error Handling:
+
+- User-friendly error messages.
+- Centralized logging (e.g. Sentry).
+- Better distinction between network and validation errors.
+
+### Testing:
+
+- Unit tests for hooks and filtering logic.
+- Component tests for edit flow.
+- E2E tests for main user interactions.
