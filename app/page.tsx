@@ -1,4 +1,3 @@
-import { fetchUsers } from "@/lib/fetchUsers";
 import { UsersClient } from "@/components/users/UsersClient/UsersClient";
 
 import styles from "./page.module.css";
@@ -9,12 +8,12 @@ import styles from "./page.module.css";
  * - No client state or interactivity here
  */
 
-export default async function UsersPage() {
-  const users = await fetchUsers();
-
+const UsersPage = async () => {
   return (
     <div className={styles.usersPage}>
-      <UsersClient initialUsers={users} />
+      <UsersClient />
     </div>
   );
-}
+};
+
+export default UsersPage;
