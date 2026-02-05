@@ -136,3 +136,23 @@ If this were a production application, the following improvements would be consi
 - Unit tests for hooks and filtering logic.
 - Component tests for edit flow.
 - E2E tests for main user interactions.
+
+### API Layer:
+
+- Replace JSONPlaceholder with a real API.
+- Move filtering to the backend for large datasets.
+- Add pagination and sorting.
+
+## 📌 Final Notes
+
+This project intentionally avoids overengineering.
+Where trade-offs were made, clarity and maintainability were prioritized.
+
+The goal was to demonstrate:
+
+- Solid React fundamentals.
+- Correct mental model of Next.js
+- Clean component architecture.
+- Thoughtful state and rendering management.
+
+Thanks for reviewing! 🚀
