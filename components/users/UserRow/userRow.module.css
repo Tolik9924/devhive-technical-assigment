@@ -1,4 +1,23 @@
 .userRow {
   display: flex;
   gap: 20px;
+  width: 100%;
+}
+
+.name {
+  width: 30%;
+}
+
+.userItem {
+  width: 25%;
+}
+
+.email {
+  width: 35%;
+}
+
+.edit {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
 }

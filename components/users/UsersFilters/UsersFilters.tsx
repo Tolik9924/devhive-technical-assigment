@@ -1,3 +1,4 @@
+import { Input } from "@/ui-components/Input";
 import styles from "./usersFilters.module.css";
 
 // Presentational component responsible for rendering user filter inputs.
@@ -22,13 +23,15 @@ export const UsersFilters = ({
 }) => {
   return (
     <div className={styles.usersFilters}>
-      <input
+      <Input
+        size="s"
         placeholder="Search by name"
         value={search}
         onChange={(e) => onSearchChange(e.target.value)}
       />
 
-      <input
+      <Input
+        size="s"
         placeholder="Filter by city"
         value={city}
         onChange={(e) => onCityChange(e.target.value)}

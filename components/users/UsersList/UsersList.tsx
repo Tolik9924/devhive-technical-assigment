@@ -19,6 +19,11 @@ export const UsersList = ({
 }) => {
   return (
     <div className={styles.usersList}>
+      <div className={styles.headerInfo}>
+        <div className={styles.name}>Name</div>
+        <div className={styles.email}>Email</div>
+        <div className={styles.city}>City</div>
+      </div>
       {users.map((user) => (
         <UserRow key={user.id} user={user} onEdit={onEdit} />
       ))}

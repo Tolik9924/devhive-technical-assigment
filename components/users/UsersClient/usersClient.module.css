@@ -1,7 +1,19 @@
+.usersClientPage {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
 .usersClient {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  justify-content: center;
   align-items: center;
+  width: 700px;
+  height: 500px;
+}
+
+.loadingContainer {
+  margin-top: 50px;
 }

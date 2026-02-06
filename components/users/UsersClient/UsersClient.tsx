@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react";
 import { Loading } from "@/ui-components/Loading/Loading";
+import { Wrapper } from "@/ui-components/Wrapper";
 import { Modal } from "@/components/modal/Modal";
 import { useUsers } from "@/hooks/useUsers";
 import { fetchUsers } from "@/lib/fetchUsers";
@@ -40,7 +41,7 @@ export const UsersClient = () => {
   });
 
   const filteredUsers = useUsers(users, filterUser);
-  const debouncedValue = useDebouncedValue(filteredUsers, 300);
+  const debouncedUsers = useDebouncedValue(filteredUsers, 300);
 
   const getUsers = async () => {
     if (loading) return;
@@ -80,26 +81,32 @@ export const UsersClient = () => {
   };
 
   return (
-    <div className={styles.usersClient}>
-      USERS PAGE
-      <UsersFilters
-        search={filterUser.name}
-        city={filterUser.city}
-        onSearchChange={(value) => onFilterChange("name", value)}
-        onCityChange={(value) => onFilterChange("city", value)}
-      />
-      {loading ? (
-        <Loading />
-      ) : (
-        <UsersList users={debouncedValue} onEdit={onEditUser} />
-      )}
-      <Modal isOpen={isOpenModal} onClose={onCloseModal}>
-        <UserEditForm
-          user={selectedUser}
-          onCancel={onCloseModal}
-          onSubmit={updateUser}
-        />
-      </Modal>
+    <div className={styles.usersClientPage}>
+      <Wrapper>
+        <div className={styles.usersClient}>
+          USERS TABLE
+          <UsersFilters
+            search={filterUser.name}
+            city={filterUser.city}
+            onSearchChange={(value) => onFilterChange("name", value)}
+            onCityChange={(value) => onFilterChange("city", value)}
+          />
+          {loading ? (
+            <div className={styles.loadingContainer}>
+              <Loading />
+            </div>
+          ) : (
+            <UsersList users={debouncedUsers} onEdit={onEditUser} />
+          )}
+        </div>
+        <Modal isOpen={isOpenModal} onClose={onCloseModal}>
+          <UserEditForm
+            user={selectedUser}
+            onCancel={onCloseModal}
+            onSubmit={updateUser}
+          />
+        </Modal>
+      </Wrapper>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { Button } from "@/ui-components/Button";
 import { User } from "../types";
 
 import styles from "./userRow.module.css";
@@ -16,10 +17,14 @@ type Props = {
 export const UserRow = ({ user, onEdit }: Props) => {
   return (
     <div className={styles.userRow}>
-      <div>{user.name}</div>
-      <div>{user.email}</div>
-      <div>{user.city}</div>
-      <button onClick={() => onEdit(user)}>Edit</button>
+      <div className={styles.name}>{user.name}</div>
+      <div className={styles.email}>{user.email}</div>
+      <div className={styles.userItem}>{user.city}</div>
+      <div className={styles.edit}>
+        <Button onClick={() => onEdit(user)} size="xs">
+          Edit
+        </Button>
+      </div>
     </div>
   );
 };

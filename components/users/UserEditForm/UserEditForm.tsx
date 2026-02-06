@@ -4,6 +4,8 @@ import { EMAIL_ERROR_MESSAGE, USER_FIELDS } from "./constants";
 import { User } from "../types";
 
 import styles from "./userEditForm.module.css";
+import { Input } from "@/ui-components/Input";
+import { Button } from "@/ui-components/Button";
 
 // Client-side controlled form responsible for editing a single user.
 // It manages its own local form state and validation (email),
@@ -50,37 +52,47 @@ export const UserEditForm = ({
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <h3>Edit User</h3>
-      <div className={styles.field}>
-        <input
-          value={form.name}
-          onChange={(e) => handleChange(USER_FIELDS.name, e.target.value)}
-          placeholder="Name"
-        />
+      <div className={styles.header}>
+        <h3>Edit User</h3>
       </div>
-      <div className={styles.field}>
-        <input
-          value={form.email}
-          onChange={(e) => handleChange(USER_FIELDS.email, e.target.value)}
-          placeholder="Email"
-        />
-        <div className={styles.errorContainer}>
-          {error && <span className={styles.error}>{error}</span>}
+      <div className={styles.fields}>
+        <div className={styles.field}>
+          <Input
+            value={form.name}
+            onChange={(e) => handleChange(USER_FIELDS.name, e.target.value)}
+            placeholder="Name"
+            size="xs"
+          />
+        </div>
+        <div className={styles.field}>
+          <Input
+            value={form.email}
+            onChange={(e) => handleChange(USER_FIELDS.email, e.target.value)}
+            placeholder="Email"
+            size="xs"
+          />
+        </div>
+        <div className={styles.field}>
+          <Input
+            value={form.city}
+            onChange={(e) => handleChange(USER_FIELDS.city, e.target.value)}
+            placeholder="City"
+            size="xs"
+          />
         </div>
       </div>
-      <div className={styles.field}>
-        <input
-          value={form.city}
-          onChange={(e) => handleChange(USER_FIELDS.city, e.target.value)}
-          placeholder="City"
-        />
+
+      <div className={styles.errorContainer}>
+        {error && <span className={styles.error}>{error}</span>}
       </div>
 
       <div className={styles.formButtons}>
-        <button disabled={!!error} type="submit">
+        <Button disabled={!!error} type="submit" size="s">
           Save
-        </button>
-        <button onClick={onCancel}>Cancel</button>
+        </Button>
+        <Button onClick={onCancel} size="s">
+          Cancel
+        </Button>
       </div>
     </form>
   );

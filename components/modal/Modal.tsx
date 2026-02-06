@@ -1,3 +1,4 @@
+import { Button } from "@/ui-components/Button";
 import styles from "./modal.module.css";
 
 // Modal component for editing forms and displaying information.
@@ -29,7 +30,9 @@ export const Modal = ({
           >
             {hasCloseBtn && (
               <div className={styles.modalCloseButton}>
-                <button onClick={handleCloseModal}>Close</button>
+                <Button onClick={handleCloseModal} size="xs">
+                  Close
+                </Button>
               </div>
             )}
             {children}
