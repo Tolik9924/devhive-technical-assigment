@@ -5,6 +5,17 @@ import { UserDTO } from "./types";
 // from DTOs to the internal User domain model.
 // Returns an empty array if the request fails.
 
+// React Query is intentionally not used in this feature.
+// The data is fetched once, used locally within a single page,
+// and does not require caching, synchronization, or background refetching.
+// Introducing React Query here would add unnecessary abstraction.
+
+// without React Query
+// component → fetchUsers → setState → render
+
+// with React Query
+// component → useQuery → queryKey → queryFn → cache → state → render
+
 export async function fetchUsers(): Promise<User[]> {
   try {
     const res = await fetch("https://jsonplaceholder.typicode.com/users", {

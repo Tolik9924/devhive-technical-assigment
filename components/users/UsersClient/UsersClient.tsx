@@ -21,6 +21,11 @@ import styles from "./usersClient.module.css";
 // This component coordinates UI state and delegates rendering
 // to presentational components.
 
+// This feature intentionally avoids global state management.
+// All state is local and derived within the component.
+// For larger applications with shared or persistent state,
+// a solution like Zustand or Redux would be more appropriate.
+
 // Data flow:
 // - Props to child components: filters, users, handlers
 

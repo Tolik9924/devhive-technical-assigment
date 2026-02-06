@@ -87,6 +87,23 @@ app/
 
 ```
 
+## Server State Management
+
+React Query / SWR were intentionally not used in this project.
+
+The users data is fetched once and used locally within a single page.
+It does not require caching, background revalidation, synchronization,
+or sharing across multiple components or routes.
+
+Introducing a server-state library in this case would add unnecessary
+abstraction without providing clear benefits.
+
+## State Management
+
+Global state management (Redux/Zustand) was intentionally not introduced
+because the application state is local to a single page and can be derived
+directly within components without cross-feature dependencies.
+
 ## Data Flow
 
 - Server Component (page.tsx):
